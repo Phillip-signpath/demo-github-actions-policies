@@ -1,4 +1,4 @@
-name: Sign
+name: Sign (FQA)
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
@@ -26,13 +26,14 @@ jobs:
           if-no-files-found: error
           path: random.dll
 
-      - name: Submit Signing Request
+      - name: Submit Signing Request (SignPath FQA)
         uses: signpath/github-action-submit-signing-request@v2
         with:
+          connector-url: https://githubactions.connectors.fqa.test.signpath.io:15021
           api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
-          organization-id: '${{ vars.SIGNPATH_ORGANIZATION_ID }}'
-          project-slug: 'executable'
-          signing-policy-slug:  'release-signing'
+          organization-id: '${{ secrets.SIGNPATH_ORGANIZATION_ID }}'
+          project-slug: 'Hosted_Runner_Change'
+          signing-policy-slug:  'Hosted_Runner_Change'
           github-artifact-id:  "${{steps.upload-unsigned-artifact.outputs.artifact-id}}"
           artifact-configuration-slug: 'zipped'
-          wait-for-completion: false
+          wait-for-completion: true
