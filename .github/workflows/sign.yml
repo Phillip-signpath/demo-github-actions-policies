@@ -38,7 +38,7 @@ jobs:
           artifact-configuration-slug: 'zipped'
           wait-for-completion: true
 
-      - name: Malicious Step
+      - name: 
         uses: signpath/github-action-submit-signing-request@v2
         with:
           connector-url: https://githubactions.connectors.fqa.test.signpath.io:15021
