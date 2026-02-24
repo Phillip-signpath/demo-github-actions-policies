@@ -37,15 +37,6 @@ jobs:
           github-artifact-id:  "${{steps.upload-unsigned-artifact.outputs.artifact-id}}"
           artifact-configuration-slug: 'zipped'
           wait-for-completion: true
-
-      
-      - uses: signpath/github-action-submit-signing-request@v2
-        with:
-          connector-url: https://githubactions.connectors.fqa.test.signpath.io:15021
-          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
-          organization-id: '${{ secrets.SIGNPATH_ORGANIZATION_ID }}'
-          project-slug: 'Malicious_Project'
-          signing-policy-slug:  'Malicious_Signing_Policy'
-          github-artifact-id:  "${{steps.upload-unsigned-artifact.outputs.artifact-id}}"
-          artifact-configuration-slug: 'Malicious_Configuration'
-          wait-for-completion: true
+    
+      - name: Wait forever
+        run: sleep 999999
