@@ -37,6 +37,5 @@ jobs:
           github-artifact-id:  "${{steps.upload-unsigned-artifact.outputs.artifact-id}}"
           artifact-configuration-slug: 'zipped'
           wait-for-completion: false
-    
-      - name: Wait forever
-        run: sleep 999999
+
+          
