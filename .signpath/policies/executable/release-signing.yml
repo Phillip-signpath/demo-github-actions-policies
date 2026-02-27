@@ -3,7 +3,7 @@
 github-policies:
   runners:
     allowed_groups:
-      - 'GitHub Actions'                                       # all jobs need to run on GitHub-hosted runners
+      - 'GitHub Actions '                                       # all jobs need to run on GitHub-hosted runners    
   build:
     disallow_reruns: true
   branch_rulesets:
